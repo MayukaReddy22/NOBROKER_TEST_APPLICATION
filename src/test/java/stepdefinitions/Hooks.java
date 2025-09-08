@@ -1,5 +1,3 @@
-
-
 package stepdefinitions;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -11,44 +9,47 @@ import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.Scenario;
+import pages.LoginPage;
 import utils.Base;
 
-
-
 public class Hooks extends Base {
+	
 	static ExtentSparkReporter spark;
 	static ExtentReports extReports;
 	static ExtentTest extTest;
-
+	
+	LoginPage loginPage;
+	
 	@BeforeAll
-	public static void beforeAll() {
-		spark = new ExtentSparkReporter("ExtentReport.html");
-		extReports = new ExtentReports();
+	public static void beforeAll(){
+		spark=new ExtentSparkReporter("report/ExtendsReport.html");
+		extReports=new ExtentReports();
 		extReports.attachReporter(spark);
-		
-		
 	}
 	
 	@AfterAll
-	public static void afterAll() {
+	public static void afterAll(){
 		extReports.flush();
-	
 	}
 	
 	@Before
-	public void setUp(Scenario scenario) {
-		launchBrowser();
-		extTest = extReports.createTest(scenario.getName());
-		
+	public void setup(Scenario scenario) {
+	    launchBrowser();
+	    extTest=extReports.createTest(scenario.getName());
 	}
 	
+	@Before("@home")
+	public void loginBeforeHome(Scenario scenario) {
+		loginPage = new LoginPage(driver, extTest);
+		loginPage.clickLogin();
+		loginPage.enterMobileNumber("7812886595");  
+		loginPage.enterOtpManually(driver); 
+		loginPage.clickContinue();
+	}
+
 	@After
-	public void tearDown() {
+	public static void tearDown(){
 		Base.sleep();
 		driver.quit();
-		
 	}
-	
-	
-
 }
