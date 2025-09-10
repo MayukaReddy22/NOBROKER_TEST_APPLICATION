@@ -2,9 +2,9 @@ package stepdefinitions;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
 import pages.LoginPage;
 import pages.BlogPage;
 
@@ -12,32 +12,33 @@ public class BlogStepDef {
 
     WebDriver driver = Hooks.driver;
     LoginPage loginPage;
-    BlogPage navigationPage;
+    BlogPage blogPage;
 
-    @Given("the user logs in with a valid mobile number and OTP")
-    public void the_user_logs_in_with_a_valid_mobile_number_and_otp() {
+    @Given("the user is logged in and navigates to menu")
+    public void the_user_is_logged_in_and_navigates_to_menu() {
         loginPage = new LoginPage(driver, Hooks.extTest);
-        
+
         loginPage.clickLogin();
         loginPage.enterMobileNumber("8122802783");
         loginPage.clickContinue();
-        
+
         loginPage.enterOtpManually(driver);
         loginPage.clickContinue();
-        
+
         Assert.assertTrue(loginPage.loginsuccessful(), "Login failed!");
-        System.out.println("✅ User logged in successfully.");
+        System.out.println("✅ User logged in successfully");
+
+        // Click the menu button to expand options
+        loginPage.clickMenu();
+        System.out.println("✅ Menu clicked");
     }
 
-    @When("the user navigates through Menu to select renovation in Interiors")
-    public void the_user_navigates_through_menu_to_select_renovation_in_interiors() {
-        navigationPage = new BlogPage(driver);
-
-        navigationPage.clickMenu();
-        navigationPage.clickBlogs();
-        navigationPage.clickInteriors();
-        navigationPage.selectRenovation();
-
-        System.out.println("✅ Navigation to renovation completed.");
+    @When("the user navigates to Interiors -> Renovation")
+    public void the_user_navigates_to_interiors_renovation() {
+        blogPage = new BlogPage(driver);
+        blogPage.navigateToRenovationBlogs();
+        System.out.println("✅ Navigated to Interiors -> Renovation");
     }
+
+   
 }

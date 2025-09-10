@@ -38,16 +38,19 @@ public class LoginPage {
         }
     }
 
-    public void enterMobileNumber(String mobile) {
+    public void enterMobileNumber(String mobileNumber) {
         try {
-            driver.findElement(Locators.inputNumber).sendKeys(mobile);
-            extTest.log(Status.PASS, "Entered mobile number: " + mobile);
-        }
-        catch (Exception e) {
-            extTest.log(Status.FAIL, "Failed to enter mobile number: " + e.getMessage());
+            WebElement phoneField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//input[contains(@id,'phoneNumber')]")));
+            phoneField.clear();
+            phoneField.sendKeys(mobileNumber);
+            System.out.println("✅ Mobile number entered: " + mobileNumber);
+        } catch (Exception e) {
+            System.out.println("❌ Could not find mobile number input. Check if locator changed or inside iframe.");
             throw e;
         }
     }
+
 
     public void clickContinue() {
         try {
@@ -137,4 +140,9 @@ public class LoginPage {
             return false;
         }
     }
+
+	public void clickMenu() {
+		// TODO Auto-generated method stub
+		
+	}
 }

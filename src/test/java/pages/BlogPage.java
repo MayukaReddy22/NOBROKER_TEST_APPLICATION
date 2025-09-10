@@ -1,46 +1,70 @@
 package pages;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import objectrepository.Locators;
+import java.time.Duration;
 
 public class BlogPage {
 
     WebDriver driver;
     WebDriverWait wait;
 
+    // Locators
+    private By menuButton = By.xpath("//*[@id='main-menu']/div[1]"); // Menu button to expand
+    private By blogsButton = By.xpath("//*[@id='main-menu']/div[2]/a[13]"); // Blog button
+    private By listButton = By.xpath("//*[@id='hamburger']"); // List button (top-left corner)
+    private By interiorsDropdown = By.xpath("//*[@id='dropdownContent']/div[2]/div[5]/div[1]/div"); // Interiors dropdown
+    private By renovationOption = By.xpath("//*[@id='dropdownContent']/div[2]/div[5]/div[2]/a[1]"); // Renovation option
+
+    // Constructor
     public BlogPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
-    public void clickMenu() {
-        WebElement menu = wait.until(ExpectedConditions.elementToBeClickable(Locators.menuButton));
-        menu.click();
-        System.out.println("✅ Menu clicked.");
-    }
+    // Navigate to Renovation blogs
+    public void navigateToRenovationBlogs() {
 
-    public void clickBlogs() {
-        WebElement blogs = wait.until(ExpectedConditions.elementToBeClickable(Locators.blogs));
-        blogs.click();
-        System.out.println("✅ Blogs clicked.");
-    }
+        // Close overlay popup if it exists
+        try {
+            WebElement closeBtn = driver.findElement(By.cssSelector(".overlay .close-btn"));
+            if (closeBtn.isDisplayed()) {
+                closeBtn.click();
+                System.out.println("✅ Overlay closed");
+            }
+        } catch (NoSuchElementException e) {
+            // No overlay, continue
+        }
 
-    public void clickInteriors() {
-        WebElement interiors = wait.until(ExpectedConditions.elementToBeClickable(Locators.interiors));
+        // Click menu button
+        WebElement menuBtn = wait.until(ExpectedConditions.elementToBeClickable(menuButton));
+        menuBtn.click();
+        System.out.println("✅ Menu button clicked");
+
+        // Click blog button
+        WebElement blogBtn = wait.until(ExpectedConditions.elementToBeClickable(blogsButton));
+        blogBtn.click();
+        System.out.println("✅ Blog button clicked");
+
+        // Click list button
+        WebElement listBtn = wait.until(ExpectedConditions.elementToBeClickable(listButton));
+        listBtn.click();
+        System.out.println("✅ List button clicked");
+
+        // Click Interiors dropdown
+        WebElement interiors = wait.until(ExpectedConditions.elementToBeClickable(interiorsDropdown));
         interiors.click();
-        System.out.println("✅ Interiors clicked.");
-    }
+        System.out.println("✅ Interiors dropdown clicked");
 
-    public void selectRenovation() {
-        WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(Locators.dropdown));
-        dropdown.click();
-        System.out.println("✅ Renovation selected from dropdown.");
+        // Click Renovation option
+        WebElement renovation = wait.until(ExpectedConditions.elementToBeClickable(renovationOption));
+        renovation.click();
+        System.out.println("✅ Renovation option clicked");
     }
+    
 }

@@ -1,24 +1,32 @@
 package stepdefinitions;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.aventstack.extentreports.util.Assert;
-
-import io.cucumber.java.en.*;
-import io.cucumber.messages.types.Duration;
+import org.testng.Assert;
 import pages.LoginPage;
-import utils.Base;
+import pages.ContactNum_PaymentPage;
+import io.cucumber.java.en.*;
 
-public class ContactNum_PaymentStepDef extends Base {
+import java.time.Duration;
 
+public class ContactNum_PaymentStepDef {
+
+    WebDriver driver;
     WebDriverWait wait;
+    LoginPage loginPage;
+    ContactNum_PaymentPage paymentPage;
 
-    @Given("the user logs in with a valid mobile number and OTP for booking")
-    public void the_user_logs_in_with_a_valid_mobile_number_and_otp() {
-        LoginPage loginPage = new LoginPage(driver, Hooks.extTest);
+    public ContactNum_PaymentStepDef() {
+        this.driver = Hooks.driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        this.paymentPage = new ContactNum_PaymentPage();
+    }
+
+    @Given("User is logged in with valid phone number and OTP for contact payment")
+    public void user_is_logged_in_with_valid_phone_number_and_otp () {
+        loginPage = new LoginPage(driver, Hooks.extTest);
 
         loginPage.clickLogin();
         loginPage.enterMobileNumber("8122802783");
@@ -27,36 +35,37 @@ public class ContactNum_PaymentStepDef extends Base {
         loginPage.enterOtpManually(driver);
         loginPage.clickContinue();
 
-        boolean isLoggedIn = loginPage.loginsuccessful();
-        Assert.assertTrue(isLoggedIn, "❌ Login failed! Element indicating success not found.");
+        Assert.assertTrue(loginPage.loginsuccessful(), "Login failed!");
         System.out.println("✅ User logged in successfully");
     }
 
-
-    private void enterOtpManually(WebDriver driver) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@When("User clicks on Pay Rent button")
+    @When("User clicks on Pay Rent button")
     public void user_clicks_on_pay_rent_button() {
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='rentPayment']/div[2]"))).click();
+        WebElement payRent = wait.until(ExpectedConditions.elementToBeClickable(paymentPage.payRentButton));
+        payRent.click();
     }
 
-    @And("User selects Contact Number payment option")
+    @When("User selects Contact Number payment option")
     public void user_selects_contact_number_payment_option() {
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/main/div[2]/div[3]/div[1]/div/div[1]/div[1]/div/div/div[2]"))).click();
+        WebElement contactOption = wait.until(ExpectedConditions.elementToBeClickable(paymentPage.contactNumberOption));
+        contactOption.click();
     }
 
-    @And("User enters PAN number {string}")
+    @When("User enters PAN number {string}")
     public void user_enters_pan_number(String panNumber) {
-        driver.findElement(By.id("IJSPP4270C")).sendKeys(panNumber);
+        WebElement panField = wait.until(ExpectedConditions.visibilityOfElementLocated(paymentPage.panInputField));
+        panField.sendKeys(panNumber);
     }
 
-    @And("User clicks on Verify button")
-    public void user_clicks_on_verify_button() {
-        driver.findElement(By.xpath("//*[@id='btnSubmit5']")).click();
+    @Then("User verifies the PAN number")
+    public void user_verifies_the_pan_number() {
+        WebElement verify = wait.until(ExpectedConditions.elementToBeClickable(paymentPage.verifyButton));
+        verify.click();
     }
 
-    
+    @Then("User is redirected to the payment page")
+    public void user_is_redirected_to_the_payment_page() {
+        wait.until(ExpectedConditions.urlContains("payment"));
+        System.out.println("✅ User is redirected to the payment page");
+    }
 }

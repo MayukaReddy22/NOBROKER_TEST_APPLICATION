@@ -69,6 +69,12 @@ public class AC_ServicePage {
         
     }
 
+
+	public void navigateToApplianceServicesForBooking() {
+		// TODO Auto-generated method stub
+		
+	}
+
     /**
      * Verify AC Services page is visible
      */
