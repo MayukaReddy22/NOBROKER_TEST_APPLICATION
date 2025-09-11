@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>20/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Sep 10 16:44:54 IST 2025</td>
+<td>Started on:</td><td>Sat Sep 13 19:00:57 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>53 seconds (53715 ms)</td>
+<tr><td>Total time:</td><td>622 seconds (622975 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,33 +76,188 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='runner.TestRunner_ContactNum_PaymentPage.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner_ContactNum_PaymentPage<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successful Payment using Contact Number", "Payment Module - NoBroker.com"</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //div[contains(text(),&apos;to Contact&apos;)]
- (tried for 30 second(s) with 500 milliseconds interval)
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "View previous searches after new search", "History - Search history"</td>
+<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+  (Session info: chrome=140.0.7339.81)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
 Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.81, chrome: {chromedriverVersion: 140.0.7339.82 (bc93617e21c3..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65429}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65429/devtoo..., se:cdpVersion: 140.0.7339.81, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 577519501e3671f66a6d05d2f77a8333
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at stepdefinitions.ContactNum_PaymentStepDef.user_selects_contact_number_payment_option(ContactNum_PaymentStepDef.java:50)
-	at ✽.User selects Contact Number payment option(file:///C:/Users/HP/eclipse-workspace/nobrokertestapplication/src/test/resources/features/contactnumpayment.feature:7)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1550991149", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1550991149'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //div[contains(text(),&apos;to Contact&apos;)]
- (tried for 30 second(s) with 500 milliseconds interval)
+Command: [e4a6f9729a6f02465ed498df1d940fd0, clickElement {id=f.53C3338F299954E7EC246311F6FC9FAA.d.982170F45CDF4B6CCDB1C9B5ED2EE526.e.103}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.81, chrome: {chromedriverVersion: 140.0.7339.82 (bc93617e21c3..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50185}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50185/devtoo..., se:cdpVersion: 140.0.7339.81, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (e4a6f9729a6f02465ed498df1d940fd0)] -&gt; xpath: //div[text()=&apos;Chennai&apos;]]
+Session ID: e4a6f9729a6f02465ed498df1d940fd0
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at pages.PropertySearch.selectCity(PropertySearch.java:49)
+	at stepdefinitions.HistoryStepDef.the_user_has_previously_searched_for(HistoryStepDef.java:29)
+	at ✽.the user has previously searched for &quot;Adyar, Chennai&quot;(file:///C:/Users/HP/eclipse-workspace/nobrokertestapplication/src/test/resources/features/history.feature:4)
+</pre></div><a href='#' onClick='toggleBox("stack-trace2089747578", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2089747578'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+  (Session info: chrome=140.0.7339.81)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
 Build info: version: &apos;4.34.0&apos;, revision: &apos;707dcb4246*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.81, chrome: {chromedriverVersion: 140.0.7339.82 (bc93617e21c3..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65429}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65429/devtoo..., se:cdpVersion: 140.0.7339.81, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 577519501e3671f66a6d05d2f77a8333
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at stepdefinitions.ContactNum_PaymentStepDef.user_selects_contact_number_payment_option(ContactNum_PaymentStepDef.java:50)
-	at ✽.User selects Contact Number payment option(file:///C:/Users/HP/eclipse-workspace/nobrokertestapplication/src/test/resources/features/contactnumpayment.feature:7)
+Command: [e4a6f9729a6f02465ed498df1d940fd0, clickElement {id=f.53C3338F299954E7EC246311F6FC9FAA.d.982170F45CDF4B6CCDB1C9B5ED2EE526.e.103}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.81, chrome: {chromedriverVersion: 140.0.7339.82 (bc93617e21c3..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50185}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50185/devtoo..., se:cdpVersion: 140.0.7339.81, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (e4a6f9729a6f02465ed498df1d940fd0)] -&gt; xpath: //div[text()=&apos;Chennai&apos;]]
+Session ID: e4a6f9729a6f02465ed498df1d940fd0
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at pages.PropertySearch.selectCity(PropertySearch.java:49)
+	at stepdefinitions.HistoryStepDef.the_user_has_previously_searched_for(HistoryStepDef.java:29)
+	at ✽.the user has previously searched for &quot;Adyar, Chennai&quot;(file:///C:/Users/HP/eclipse-workspace/nobrokertestapplication/src/test/resources/features/history.feature:4)
 </pre></div></td>
-<td>52</td>
-<td>runner.TestRunner_ContactNum_PaymentPage@2d2ffcb7</td></tr>
+<td>8</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User cancels the payment after subscribing to Freedom Plan", "Cancel Payment after Selecting Freedom Plan"</td>
+<td><div><pre>java.lang.AssertionError: Login failed! expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at stepdefinitions.Subscription_Payment_Cancel_Stepdef.user_is_logged_in_for_payment_cancel(Subscription_Payment_Cancel_Stepdef.java:27)
+	at ✽.the user is logged in for payment cancel(file:///C:/Users/HP/eclipse-workspace/nobrokertestapplication/src/test/resources/features/subscriptionpaymentcancel.feature:5)
+</pre></div><a href='#' onClick='toggleBox("stack-trace902427943", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace902427943'><pre>java.lang.AssertionError: Login failed! expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at stepdefinitions.Subscription_Payment_Cancel_Stepdef.user_is_logged_in_for_payment_cancel(Subscription_Payment_Cancel_Stepdef.java:27)
+	at ✽.the user is logged in for payment cancel(file:///C:/Users/HP/eclipse-workspace/nobrokertestapplication/src/test/resources/features/subscriptionpaymentcancel.feature:5)
+</pre></div></td>
+<td>103</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Navigate to Appliance Repair and select Refrigerator service", "Appliance Service Navigation"</td>
+<td></td>
+<td>11</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Login with valid credentials", "User Login"</td>
+<td></td>
+<td>23</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Navigate to Interiors -> Renovation blogs", "Blog Navigation"</td>
+<td></td>
+<td>21</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Navigate to "E-Stamped Agreement" and return to Rental Agreement", "Navigate to E-Stamped Agreement"</td>
+<td></td>
+<td>30</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Navigate to "Renew Your Agreement" and return to Rental Agreement", "Navigate to Renew Your Agreement"</td>
+<td></td>
+<td>34</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Navigate to "Upload your Draft" and return to Rental Agreement", "Navigate to Upload your Draft"</td>
+<td></td>
+<td>36</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User logs in and selects Hindi language from dropdown", "Language selection from Blogs menu"</td>
+<td></td>
+<td>45</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Navigate to "Paperless Rental Agreement with Aadhaar E-Sign" and return to Rental Agreement", "Navigate to Paperless Rental Agreement with Aadhaar E-Sign"</td>
+<td></td>
+<td>34</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Login with invalid OTP", "User Login"</td>
+<td></td>
+<td>6</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Login with invalid mobile number", "User Login"</td>
+<td></td>
+<td>6</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Sales Agreement Payment Cancel", "Sales agreement Purchase"</td>
+<td></td>
+<td>69</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Open Help Center and raise a complaint", "NoBroker Help Center Complaint Flow"</td>
+<td></td>
+<td>8</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Navigate to "Your Ongoing Agreements" and return to Rental Agreement", "Navigate to Your Ongoing Agreements"</td>
+<td></td>
+<td>33</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Navigate to Real Estate Buy Blogs after login", "Real Estate Navigation on NoBroker"</td>
+<td></td>
+<td>18</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User opens Freedom Plan", "Tenant Plan Subscription"</td>
+<td></td>
+<td>22</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Scroll Careers page to view "How did we Start"", "Navigate to Careers"</td>
+<td></td>
+<td>9</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "OTP Expiry and Resend", "User Login"</td>
+<td></td>
+<td>46</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User logs in and views AC services", "Access AC Services"</td>
+<td></td>
+<td>10</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Successful Payment using Contact Number", "Payment Module - NoBroker.com"</td>
+<td></td>
+<td>19</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
+<tr>
+<td title='runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "User navigate to the last stage and sign out from website", "Sign out from the website of Nobroker"</td>
+<td></td>
+<td>20</td>
+<td>runner.TestRunner@2d2ffcb7</td></tr>
 </table><p>
 </body>
 </html>

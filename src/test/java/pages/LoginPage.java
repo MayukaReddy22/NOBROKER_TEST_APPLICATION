@@ -38,15 +38,18 @@ public class LoginPage {
         }
     }
 
-    public void enterMobileNumber(String mobileNumber) {
+    public void enterMobileNumber(String mobile) {
         try {
-            WebElement phoneField = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                    By.xpath("//input[contains(@id,'phoneNumber')]")));
-            phoneField.clear();
-            phoneField.sendKeys(mobileNumber);
-            System.out.println("✅ Mobile number entered: " + mobileNumber);
-        } catch (Exception e) {
-            System.out.println("❌ Could not find mobile number input. Check if locator changed or inside iframe.");
+            WebElement mobileField = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(Locators.inputNumber)
+            );
+            mobileField.clear();
+            mobileField.sendKeys(mobile);
+
+            extTest.log(Status.PASS, "Entered mobile number: " + mobile);
+        }
+        catch (Exception e) {
+            extTest.log(Status.FAIL, "Failed to enter mobile number: " + e.getMessage());
             throw e;
         }
     }
@@ -74,6 +77,8 @@ public class LoginPage {
             throw e;
         }
     }
+    
+    
 
     public void enterOtpManually(WebDriver driver) {
         try {
@@ -131,12 +136,33 @@ public class LoginPage {
 
     public boolean loginsuccessful() {
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("profile-icon")));
-            extTest.log(Status.PASS, "Login successful - Profile icon is visible");
-            return true;
-        } 
-        catch (TimeoutException te) {
-            extTest.log(Status.FAIL, "Login failed - Profile icon not found");
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+            // Define possible profile locators
+            By[] possibleLocators = {
+                By.id("profile-icon"),
+                By.xpath("//*[contains(@class,'profile') and contains(@class,'icon')]"),
+                By.xpath("//img[contains(@alt,'profile')]"),
+                By.xpath("//*[text()='My Profile' or text()='Profile']")
+            };
+
+            // Loop through possible locators
+            for (By locator : possibleLocators) {
+                try {
+                    wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+                    extTest.log(Status.PASS, "✅ Login successful - Profile element found: " + locator.toString());
+                    return true;
+                } catch (TimeoutException ignored) {
+                    // Try next locator
+                }
+            }
+
+            // If no locator matched
+            extTest.log(Status.FAIL, "❌ Login failed - No profile element found");
+            return false;
+
+        } catch (Exception e) {
+            extTest.log(Status.FAIL, "❌ Login check failed due to exception: " + e.getMessage());
             return false;
         }
     }
@@ -145,4 +171,6 @@ public class LoginPage {
 		// TODO Auto-generated method stub
 		
 	}
+
+
 }
